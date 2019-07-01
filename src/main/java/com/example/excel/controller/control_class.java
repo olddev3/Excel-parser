@@ -1,13 +1,9 @@
 package com.example.excel.controller;
 
  
+import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import java.util.List;
-
- 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.MediaType;
 
 import org.springframework.http.ResponseEntity;
@@ -15,11 +11,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.PostMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
- 
+import com.example.excel.repository.repository;
 import com.example.excel.service.service;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+
 
  
  
@@ -28,6 +26,9 @@ import com.example.excel.service.service;
  public class control_class
 {
   
+	
+	private static final String FILE_NAME =
+		    "C:\\Users\\knl\\Desktop\\customers-1.xlsx";
  
 public control_class ()
   {
@@ -38,6 +39,8 @@ public control_class ()
  
 @Autowired 
  private service serve;
+
+private repository  repo;
   
  
   /******* Get Controller 
@@ -52,18 +55,45 @@ public control_class ()
   {
     
 return serve.convertTwoJson ();
-  
-
-}
+  }
    
 
 
-	/******** Post Controller ******* 
-   @PostMapping (value = "/add", produces = MediaType.) 
-    public void add () throws IOException 
-  {
+	/******** Post Controller 
+	 * @throws IOException 
+	 * @throws JsonMappingException 
+	 * @throws JsonParseException *******/
+@PostMapping(value = "/add" , produces = MediaType.APPLICATION_JSON_VALUE)
+public void save() throws IOException,FileNotFoundException
+{
+	
+	
+	serve.add1();
+}
+	/*
+	HttpHeaders posthead = new HttpHeaders();
+	
+	   posthead.add("Lang", "en-Us");
+	   posthead.getDate();
+	
+		ObjectMapper objectMapper = new ObjectMapper();
+		String formJsonData = formNode.toString();
+		try {
+			
+			Users use = objectMapper.readValue(formJsonData, Users.class);
+              repo.save(use);
+		} 
+		
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println(formJsonData);
+		
+		 return new ResponseEntity<>(formJsonData,posthead ,HttpStatus.OK);
+	}
+	*/
 
-
-}  */
 
 } 
