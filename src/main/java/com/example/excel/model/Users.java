@@ -1,76 +1,69 @@
 package com.example.excel.model;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name="data")
-public class Users {
-
+@Table(name = "master_user")
+public class users {
 	
-    @Id
-    @Column(name = "Id")
-	private int Id;
-    
-    @Column(name = "Name")
-	private String Name;
-    
-    @Column(name = "Address")
-	private String Address;
-    
-    @Column(name = "Age")
-	private int Age;
+	@Id
+	private int id;
+	
+//	
+//	@Column
+//	private String email;
+//	
+//	
+	@Column
+	private String name;
 
-	public Users(int id, String name, String address, int age) {
-		super();
-		Id = id;
-		Name = name;
-		Address = address;
-		Age = age;
+
+	@Override
+	public String toString() {
+		return "users [id=" + id + ", name=" + name + "]";
 	}
-																			
-	public Users() {
+
+
+	public users() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+
 	public int getId() {
-		return Id;
+		return id;
 	}
+
 
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
+
+
+//	public String getEmail() {
+//		return email;
+//	}
+//
+//
+//	public void setEmail(String email) {
+//		this.email = email;
+//	}
+
 
 	public String getName() {
-		return Name;
+		return name;
 	}
+
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
+	
+	
+	
+	
 
-	public String getAddress() {
-		return Address;
-	}
-
-	public void setAddress(String address) {
-		Address = address;
-	}
-
-	public int getAge() {
-		return Age;
-	}
-
-	public void setAge(int age) {
-		Age = age;
-	}
-    
-	
-	
-	
-	
-	
 }
