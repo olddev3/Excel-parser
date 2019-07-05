@@ -10,4 +10,11 @@ public class SpringExcel2Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringExcel2Application.class, args);
-		}  }
+		
+		//excel2json x =new excel2json();
+		
+		 //x.convertExcelToJson();
+		
+	}
+
+}
